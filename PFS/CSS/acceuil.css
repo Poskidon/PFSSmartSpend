@@ -1,0 +1,101 @@
+*
+{
+    font-family:sans-serif;
+    color: white;
+}
+body
+{
+    background-image: url("../Images/acceuil.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;  
+    min-height: 100vh; 
+    margin:0; 
+    background-position: center;
+}
+#header
+{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold; 
+}
+#navigation
+{
+    width:60%;
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+#logo
+{
+    width: 40%;
+    margin: 20px 0 0 0;
+    font-size: 20px;
+    color:yellow;
+    padding-left: 50px;
+}
+#navigation>a
+{
+    text-decoration: none;
+    margin: 0 20px;
+    display: block;
+}
+#section
+{
+    width:410px;
+    height: 240px;
+    margin-top: 180px;
+    margin-left: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+}
+footer
+{
+    margin-top: 220px;
+    height: 80px;
+    display: flex;
+    background-color:rgb(14, 95, 156);
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+footer>div
+{
+    height:40px;
+    width:40px;
+    margin:0 20px 0 20px;
+    border-radius: 20px;
+    background-image: url("../Images/Social_circle.png"); 
+}
+footer>h1
+{
+    font-size: 30px;
+    width:70%;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact1
+{
+    background-position: -34px -20px;
+}
+.contact2
+{
+    background-position:101px -20px;
+}
+.contact3
+{
+    background-position:145px -20px;
+}
+a:hover
+{
+    color:yellow;
+}
+
+
+
+

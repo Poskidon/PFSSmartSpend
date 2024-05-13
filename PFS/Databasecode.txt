@@ -1,0 +1,79 @@
+-- Création de la base de données
+CREATE DATABASE SmartSpendDB;
+
+-- Sélection de la base de données pour l'utilisation
+USE SmartSpendDB;
+
+-- Création de la table 'Utilisateurs'
+CREATE TABLE Utilisateurs (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Nom VARCHAR(255),
+    Email VARCHAR(255) UNIQUE,
+    MotDePasse VARCHAR(255),
+    DateInscription DATE
+);
+
+-- Création de la table 'Categories'
+CREATE TABLE Categories (
+    CategorieID INT AUTO_INCREMENT PRIMARY KEY,
+    Nom VARCHAR(255) UNIQUE
+);
+
+-- Création de la table 'Transactions'
+CREATE TABLE Transactions (
+    TransactionID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT,
+    CategorieID INT,
+    Montant DECIMAL(10, 2),
+    Date DATE,
+    Description TEXT,
+    FOREIGN KEY (UserID) REFERENCES Utilisateurs(UserID),
+    FOREIGN KEY (CategorieID) REFERENCES Categories(CategorieID)
+);
+
+-- Création de la table 'ObjectifsFinanciers'
+CREATE TABLE ObjectifsFinanciers (
+    ObjectifID INT AUTO_INCREMENT PRIMARY KEY,
+    UserID INT,
+    Nom VARCHAR(255),
+    MontantCible DECIMAL(10, 2),
+    DateCible DATE,
+    Progression DECIMAL(10, 2),
+    FOREIGN KEY (UserID) REFERENCES Utilisateurs(UserID)
+);
+
+-- Création de la table 'ProduitsAlimentaires'
+CREATE TABLE ProduitsAlimentaires (
+    ProduitID INT AUTO_INCREMENT PRIMARY KEY,
+    TransactionID INT,
+    Nom VARCHAR(255),
+    Quantite INT,
+    Prix DECIMAL(10, 2),
+    NoteNutritionnelle VARCHAR(255),
+    FOREIGN KEY (TransactionID) REFERENCES Transactions(TransactionID)
+);
+
+-- Création de la table 'Alertes'
+CREATE TABLE alerts (
+    AlertID INT AUTO_INCREMENT PRIMARY KEY,
+    DateHeure DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Message TEXT NOT NULL,
+    UserID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES utilisateurs(UserID)
+);
+CREATE TABLE budgets (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    UtilisateurID INT NOT NULL,
+    BudgetMensuel DECIMAL(10, 2) NOT NULL,
+    MontantAEconomiser DECIMAL(10, 2) NOT NULL,
+    MoisAnnee DATE NOT NULL,
+    CONSTRAINT fk_utilisateur FOREIGN KEY (UtilisateurID) REFERENCES utilisateurs(UserID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+
+
+
